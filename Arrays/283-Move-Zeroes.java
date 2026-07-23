@@ -14,16 +14,18 @@ Space Complexity: O(1)
 
 class Solution {
     public void moveZeroes(int[] nums) {
-        int count = 0;
-
-        for (int num : nums) {
-            if (num != 0) {
-                nums[count++] = num;
+        int index=0;
+        for(int i=0; i<nums.length;i++){
+            if(nums[i]!=0){
+                nums[index]=nums[i];
+                index++;
+            } 
+            //[1,0,0,2,3] it makes array like [1,2,3,2,3] and index=2 
+        }
+        //index start from index=2 so we make other 0
+        while(index<nums.length){ 
+                nums[index]=0;
+                index++;
             }
-        }
-
-        for (int i = 0; i < nums.length - count; i++) {
-            nums[count + i] = 0;
-        }
     }
 }
